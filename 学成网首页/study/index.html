@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 微软雅黑;
+            color: #000;
+        }
+
+        body {
+            background-color: #f3f5f7;
+        }
+        input{
+            outline: none;
+        }
+        li,
+        a {
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+        .top {
+            width: 1200px;
+            height: 100px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .top .logo {
+            float: left;
+            width: 195px;
+            height: 42px;
+            margin: 30px 0;
+        }
+
+        .top ul li a {
+            list-style: none;
+            float: left;
+            padding: 10px 8px;
+            margin: 30px 0;
+            margin-left: 30px;
+            font-family: 微软雅黑;
+            font-size: 18px;
+        }
+
+        .top ul a .first {
+            /* border-bottom: 2px solid #00a4ff; */
+            margin-left: 265px;
+
+        }
+
+        .top ul a:hover {
+            border-bottom: 2px solid #00a4ff;
+
+        }
+
+
+        .top input {
+            width: 360px;
+            height: 40px;
+            border: 1px solid #00a4ff;
+            float: left;
+            margin-top: 31px;
+            margin-left: 86px;
+            padding-left: 15px;
+            box-sizing: border-box;
+        }
+
+        .top button {
+            width: 50px;
+            height: 40px;
+            margin-top: 31px;
+            float: left;
+            background: url(../img/fa-search.png) no-repeat center #00a4ff;
+            list-style: none;
+            border: 0px;
+        }
+
+        .qq {
+            width: 116px;
+            height: 30px;
+            margin-top: 35px;
+            margin-left: 30px;
+            float: left;
+            background: url(../img/登录状态.png) no-repeat;
+        }
+
+        .center {
+            width: 100%;
+            background: #033db2;
+
+        }
+
+        .banner {
+            width: 1200px;
+            height: 420px;
+            margin: 0 auto;
+            background: url(../img/banner2.png);
+            box-sizing: border-box;
+            overflow: hidden;
+            /* border: 1px solid transparent; */
+        }
+
+        .menu {
+            width: 190px;
+            height: 420px;
+            float: left;
+            background: #13014b;
+        }
+
+        .menu ul {
+            margin-top: 3px;
+        }
+
+        .menu ul li a {
+            display: inline-block;
+            width: 150px;
+            height: 46px;
+            line-height: 46px;
+            list-style: none;
+            margin: 0 20px;
+            background: url(../img/jiantou2.png) no-repeat 142px center;
+            font-size: 12px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .menu ul li a:hover {
+            color: #22b0ff;
+            background: url(../img/jiantou.png) no-repeat 142px center;
+        }
+
+        .course {
+            width: 230px;
+            height: 300px;
+            float: right;
+            margin-top: 50px;
+            background: #fff;
+        }
+
+        .course h4 {
+            display: inline-block;
+            width: 100%;
+            height: 50px;
+            margin-bottom: 5px;
+            line-height: 50px;
+            text-align: center;
+            background: #9bceea;
+            color: #fff;
+        }
+
+        .course li {
+            height: 62px;
+            margin: 0 20px;
+            list-style: none;
+            border-bottom: 1px solid #a5a5a5;
+            box-sizing: border-box;
+        }
+
+        .course li .p1 {
+            display: inline-block;
+            font-family: 微软雅黑;
+            font-size: 16px;
+            color: #4e4e4e;
+            padding-top: 12px;
+            cursor: pointer;
+        }
+
+        .course li .p1:hover {
+            font-weight: 600;
+        }
+
+        .course li .p2 {
+            font-family: 微软雅黑;
+            font-size: 12px;
+            font-weight: 600;
+            color: #a5a5a5;
+        }
+
+        .course button {
+            display: block;
+            width: 200px;
+            height: 40px;
+            margin: 0 auto;
+            margin-top: 5px;
+            border: 1px solid #22b0ff;
+            background-color: #fff;
+            color: #22b0ff;
+            font-weight: 600;
+        }
+
+        .circle {
+            /* position: absolute; */
+            float: left;
+            margin-left: 300px;
+            margin-top: 370px;
+            overflow: hidden;
+            /* padding-top: 370px; */
+            /* left: 500px; */
+            /* bottom: 0; */
+        }
+
+        .circle li {
+
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, .5);
+            float: left;
+            margin: 0 7px;
+        }
+
+        .circle .on {
+            width: 20px;
+            height: 12px;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 1);
+            float: left;
+            margin: 0 7px;
+
+        }
+
+        .content {
+            width: 1200px;
+            margin: 0 auto;
+
+        }
+
+        .content .recommond {
+            height: 60px;
+            width: 1200px;
+            background-color: #fff;
+            /* overflow: hidden; */
+            line-height: 60px;
+            /* 子元素会继承line-height */
+
+        }
+
+        .reco {
+            float: left;
+        }
+
+        .content .recommond .reco li {
+            /* 总是把reco写成repo，样式不生效找半天，一定要细心 */
+            float: left;
+        }
+
+        .reco li a {
+            /* display: inline-block; */
+            width: 124px;
+            /* height: 16px; */
+            /* line-height: 16px; */
+            font-size: 16px;
+            text-align: center;
+            padding: 0 30px;
+            color: #000;
+            /* float: left; */
+            border-right: 1px solid gray;
+        }
+
+        .reco li a:hover {
+            /* font-weight: 600; */
+            color: #22b0ff;
+        }
+
+        .ins {
+            /* line-height: 60px; */
+            margin-right: 25px;
+            font-size: 12px;
+            color: #22b0ff;
+            float: right;
+        }
+
+        .content .title {
+            height: 30px;
+            margin-top: 36px;
+            color: #494949;
+        }
+
+        .content .title h4 {
+            font-weight: 400;
+            float: left;
+        }
+
+        .content .all {
+            line-height: 30px;
+            font-size: 10px;
+            color: gray;
+            margin: 0 25px 0px 0;
+            ;
+            float: right;
+        }
+
+        /* 精品推荐图片开始 */
+        .detailCourse {
+            overflow: hidden;
+        }
+
+        .pro {
+            position: relative;
+            float: left;
+            width: 228px;
+            height: 270px;
+            margin: 0 15px 10px 0;
+            background: #fff;
+        }
+
+        .detailCourse .five {
+            margin: 0;
+        }
+
+        .pro:hover {
+            box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .litTitle {
+            font-size: 14px;
+            color: #050505;
+            margin: 20px 20px 20px 25px;
+        }
+
+        .pro img {
+            width: 228px;
+            /* height: 100%; */
+        }
+
+        .pro .hot,
+        .new {
+            display: block;
+            position: absolute;
+            top: 4px;
+            left: 192px;
+            width: 40px;
+            height: 24px;
+        }
+
+        .pro .info {
+            font-size: 12px;
+            color: #999999;
+            margin: 0 20px 0 25px;
+        }
+
+        .pro .info span {
+            color: #ff7c2d;
+        }
+
+        /* 精品推荐图片结束 */
+        /* 精品推荐菜单开始 */
+        .title ul {
+            float: left;
+            margin-left: 350px;
+        }
+
+        .title ul li {
+            float: left;
+            margin: 0 35px;
+        }
+
+        .title ul li a {
+            color: #868686;
+            font-size: 16px;
+        }
+
+        .title ul li a:hover {
+            color: #22b0ff;
+        }
+
+        /* 精品推荐菜单结束 */
+        .programe {
+            overflow: hidden;
+        }
+
+        .programe .photo1 {
+            float: left;
+            width: 228px;
+            height: 395px;
+            margin-right: 15px;
+        }
+
+        .programe .photo2 {
+            float: left;
+            width: 957px;
+            height: 100px;
+            margin-bottom: 24px;
+        }
+
+        .programe .proAll {
+            width: 957px;
+            overflow: hidden;
+        }
+
+        .none {
+            margin: 0;
+        }
+
+        /* 底端开始 */
+        .bottom {
+            width: 1200px;
+            height: 416px;
+            padding: 30px 20px 0 20px;
+            margin: 0 auto;
+            margin-top: 30px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        .product {
+            float: left;
+        }
+
+        .bottom .product img {
+            margin-bottom: 20px;
+        }
+
+        .bottom .product p {
+            /* display: block; */
+            /* height: 20px; */
+            width: 430px;
+            line-height: 20px;
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .product>a {
+            display: block;
+            width: 120px;
+            height: 35px;
+            margin-top: 10px;
+            line-height: 35px;
+            font-size: 16px;
+            color: #22b0ff;
+            border: 1px solid #22b0ff;
+            text-align: center;
+        }
+
+        .link dl {
+            float: left;
+            margin-left: 150px;
+        }
+
+        .link dl dt {
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            color: #333333;
+        }
+
+        .link dd {
+            height: 20px;
+            font-size: 12px;
+            font-family: 宋体;
+            color: #333333;
+            line-height: 20px;
+        }
+
+        /* 底端结束 */
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <img src="../img/logo.png" alt="" class="logo">
+        <ul>
+            <li class="first"><a href="#">首页</a></li>
+            <li><a href="#">课程</a></li>
+            <li><a href="#">职业规划</a></li>
+        </ul>
+        <input type="text" placeholder="请输入关键词">
+        <button></button>
+        <div class="qq"></div>
+    </div>
+    <div class="center">
+
+        <div class="banner">
+            <div class="menu">
+                <ul>
+                    <li><a href="#">前端开发</a></li>
+                    <li><a href="#">后端开发</a></li>
+                    <li><a href="#">移动开发</a></li>
+                    <li><a href="#">人工智能</a></li>
+                    <li><a href="#">商业预测</a></li>
+                    <li><a href="#">云计算&大数据</a></li>
+                    <li><a href="#">运维&测试</a></li>
+                    <li><a href="#">UI设计</a></li>
+                    <li><a href="#">产品</a></li>
+                </ul>
+            </div>
+            <ul class="circle">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="course">
+                <h4>我的课程表</h4>
+                <ul>
+                    <li>
+                        <a href="#" class="p1">继续学习 程序语言设计</a>
+                        <p class="p2">正在学习-使用对象</p>
+                    </li>
+                    <li>
+                        <a href="#" class="p1">继续学习 程序语言设计</a>
+                        <p class="p2">正在学习-使用对象</p>
+                    </li>
+                    <li>
+                        <a href="#" class="p1">继续学习 程序语言设计</a>
+                        <p class="p2">正在学习-使用对象</p>
+                    </li>
+                </ul>
+                <button>全部课程</button>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="content">
+        <div class="recommond">
+            <ul class="reco">
+                <li><a href="#">精品推荐</a></li>
+                <li><a href="#">JQuery</a></li>
+                <li><a href="#">Spark</a></li>
+                <li><a href="#">MySql</a></li>
+                <li><a href="#">JavaWeb</a></li>
+                <li><a href="#">MySql</a></li>
+                <li><a href="#">JavaWeb</a></li>
+            </ul>
+            <a href="#" class="ins">修改兴趣</a>
+        </div>
+        <div class="title">
+            <h4>精品推荐</h4>
+            <a href="#" class="all">查看全部</a>
+        </div>
+        <div class="detailCourse">
+            <div class="pro">
+                <a href=#>
+                    <img src="../img/pro1.png" alt="">
+                    <img src="../img/hot.png" alt="" class="hot">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+
+            </div>
+            <div class="pro">
+                <a href=#>
+                    <img src="../img/pro2.png" alt="">
+                    <img src="../img/new.png" alt="" class="hot">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+            </div>
+            <div class="pro">
+                <a href=#>
+                    <img src="../img/pro3.png" alt="">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+            </div>
+            <div class="pro">
+                <a href=#>
+                    <img src="../img/pro4.png" alt="">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+            </div>
+            <div class="pro five">
+                <a href=#>
+                    <img src="../img/pro5.png" alt="">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+            </div>
+            <div class="pro">
+                <a href=#>
+                    <img src="../img/pro5.png" alt="">
+                    <img src="../img/hot.png" alt="" class="hot">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+
+            </div>
+            <div class="pro">
+                <a href=#>
+                    <img src="../img/pro6.png" alt="">
+                    <img src="../img/new.png" alt="" class="hot">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+            </div>
+            <div class="pro">
+                <a href=#>
+                    <img src="../img/pro2.png" alt="">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+            </div>
+            <div class="pro">
+                <a href=#>
+                    <img src="../img/pro4.png" alt="">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+            </div>
+            <div class="pro five">
+                <a href=#>
+                    <img src="../img/pro3.png" alt="">
+                    <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                    <div class="info">
+                        <span>高级</span>• 1125人在学习
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="title">
+            <h4>精品推荐</h4>
+            <ul>
+                <li><a href="#">热门</a></li>
+                <li><a href="#">初级</a></li>
+                <li><a href="#">中级</a></li>
+                <li><a href="#">高级</a></li>
+            </ul>
+            <a href="#" class="all">查看全部</a>
+        </div>
+        <div class="programe">
+            <img src="../img/php1.png" alt="" class="photo1">
+            <img src="../img/python2.png" alt="" class="photo2">
+            <div class="proAll">
+                <div class="pro">
+                    <a href=#>
+                        <img src="../img/pro1.png" alt="">
+                        <img src="../img/new.png" alt="" class="hot">
+                        <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                        <div class="info">
+                            <span>高级</span>• 1125人在学习
+                        </div>
+                    </a>
+                </div>
+                <div class="pro">
+                    <a href=#>
+                        <img src="../img/pro2.png" alt="">
+                        <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                        <div class="info">
+                            <span>高级</span>• 1125人在学习
+                        </div>
+                    </a>
+                </div>
+                <div class="pro">
+                    <a href=#>
+                        <img src="../img/pro3.png" alt="">
+                        <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                        <div class="info">
+                            <span>高级</span>• 1125人在学习
+                        </div>
+                    </a>
+                </div>
+                <div class="pro none">
+                    <a href=#>
+                        <img src="../img/pro4.png" alt="">
+                        <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                        <div class="info">
+                            <span>高级</span>• 1125人在学习
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <h4>精品推荐</h4>
+            <ul>
+                <li><a href="#">热门</a></li>
+                <li><a href="#">初级</a></li>
+                <li><a href="#">中级</a></li>
+                <li><a href="#">高级</a></li>
+            </ul>
+            <a href="#" class="all">查看全部</a>
+        </div>
+        <div class="programe">
+            <img src="../img/php2.png" alt="" class="photo1">
+            <img src="../img/python1.png" alt="" class="photo2">
+            <div class="proAll">
+                <div class="pro">
+                    <a href=#>
+                        <img src="../img/pro6.png" alt="">
+                        <img src="../img/new.png" alt="" class="hot">
+                        <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                        <div class="info">
+                            <span>高级</span>• 1125人在学习
+                        </div>
+                    </a>
+                </div>
+                <div class="pro">
+                    <a href=#>
+                        <img src="../img/pro9.png" alt="">
+                        <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                        <div class="info">
+                            <span>高级</span>• 1125人在学习
+                        </div>
+                    </a>
+                </div>
+                <div class="pro">
+                    <a href=#>
+                        <img src="../img/pro7.png" alt="">
+                        <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                        <div class="info">
+                            <span>高级</span>• 1125人在学习
+                        </div>
+                    </a>
+                </div>
+                <div class="pro none">
+                    <a href=#>
+                        <img src="../img/pro8.png" alt="">
+                        <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                        <div class="info">
+                            <span>高级</span>• 1125人在学习
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <h4>精品推荐</h4>
+            <ul>
+                <li><a href="#">热门</a></li>
+                <li><a href="#">初级</a></li>
+                <li><a href="#">中级</a></li>
+                <li><a href="#">高级</a></li>
+            </ul>
+            <a href="#" class="all">查看全部</a>
+        </div>
+        <div class="detailCourse">
+            <div class="pro">
+                <img src="../img/pro1.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+            <div class="pro">
+                <img src="../img/pro4.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+            <div class="pro">
+                <img src="../img/pro5.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+            <div class="pro">
+                <img src="../img/pro6.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+            <div class="pro five">
+                <img src="../img/pro7.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+
+        </div>
+        <div class="title">
+            <h4>精品推荐</h4>
+            <ul>
+                <li><a href="#">热门</a></li>
+                <li><a href="#">初级</a></li>
+                <li><a href="#">中级</a></li>
+                <li><a href="#">高级</a></li>
+            </ul>
+            <a href="#" class="all">查看全部</a>
+        </div>
+        <div class="detailCourse">
+            <div class="pro">
+                <img src="../img/pro1.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+            <div class="pro">
+                <img src="../img/pro2.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+            <div class="pro">
+                <img src="../img/pro3.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+            <div class="pro">
+                <img src="../img/pro4.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+            <div class="pro five">
+                <img src="../img/pro5.png" alt="">
+                <p class="litTitle">Think PHP 5.0 博客系统实战项目演练</p>
+                <div class="info">
+                    <span>高级</span>• 1125人在学习
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="product">
+            <img src="../img/logo.png" alt="">
+            <p>学成在线致力于普及中国最好的教育它与中国一流大学和机构合作提供在线课程。
+                © 2017年XTCG Inc.保留所有权利。-沪ICP备15025210号</p>
+            <a href="#">下载APP</a>
+        </div>
+        <div class="link">
+            <dl>
+                <dt><a href="#">关于学成网</a></dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">管理团队</a></dd>
+                <dd><a href="#">工作机会</a></dd>
+                <dd><a href="#">客户服务</a></dd>
+                <dd><a href="#">帮助</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">关于学成网</a></dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">管理团队</a></dd>
+                <dd><a href="#">工作机会</a></dd>
+                <dd><a href="#">客户服务</a></dd>
+                <dd><a href="#">帮助</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">关于学成网</a></dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">管理团队</a></dd>
+                <dd><a href="#">工作机会</a></dd>
+                <dd><a href="#">客户服务</a></dd>
+                <dd><a href="#">帮助</a></dd>
+            </dl>
+        </div>
+    </div>
+</body>
+
+</html>
